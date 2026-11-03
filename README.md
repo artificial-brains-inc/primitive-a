@@ -344,3 +344,10 @@ and behavior checks require Webots and Prima-Lux; follow the scenarios in
 | `docs/PRIMITIVE_A.md` | Primitive A pathways, operating points and body mapping |
 
 Continue with the [teaching project sequence](docs/LEARNING_PATH.md).
+
+
+## License
+
+You are free to clone, use, modify, and redistribute this example for projects using **Artificial Brains products**, including commercial projects, under the [Artificial Brains Example Code License](LICENSE).
+
+The SDKs, hardware, and vendor firmware retain their own licenses; this license covers the example, not those products.
