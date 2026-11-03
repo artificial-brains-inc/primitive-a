@@ -4,6 +4,8 @@ Connect a simulated differential-drive robot to synthetic neurons running on
 Prima-Lux. Build a sensory primitive, see how it changes wheel activity, and
 learn how to connect a goal to supporting and opposing neural pathways.
 
+**GET SYNTHETIC NEURONS:** [Prima-Lux Dev Kit with capacity up to 10,000 synthetic neurons](https://artificialbrains.ai)
+
 The robot has a camera, eight proximity sensors and two driven wheels.
 Primitive A uses the camera and the two front sensors, `proximity_left` and
 `proximity_right`; the other proximity sensors remain available for extensions.
