@@ -1,0 +1,2183 @@
+#VRML_SIM R2025a utf8
+
+WorldInfo {
+  info [
+    "Sensor-safe obstacle course: avoidable objects intersect the proximity-sensor plane; elevated furniture is genuinely passable underneath."
+    "The example controller uses only proximity_left and proximity_right plus the two wheel motors."
+    "Additional side and rear proximity sensors are installed for later experiments."
+    "Camera is enabled and mounted at the front of the robot."
+    "Avoidable obstacle collision geometry reaches at least 0.12 m from the floor except perimeter markers; underpasses provide at least 0.09 m clear height."
+  ]
+  title "E-puck Sensor-Safe Household / Factory Obstacle Course"
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material1 "course_floor"
+      material2 "wheel"
+      coulombFriction [
+        1.2
+      ]
+      bounce 0
+    }
+    ContactProperties {
+      material1 "course_floor"
+      material2 "robot_body"
+      coulombFriction [
+        0.08
+      ]
+      bounce 0
+    }
+  ]
+}
+Viewpoint {
+  fieldOfView 0.72
+  orientation -0.19108804032377152 0.4530412731003681 0.8707691805023984 0.9021591288536331
+  position -2.837604350339356 -2.485518101082246 1.3656658190123567
+  near 0.01
+}
+Background {
+  skyColor [
+    0.84 0.88 0.92
+  ]
+}
+DirectionalLight {
+  ambientIntensity 0.55
+  direction -0.45 0.25 -1
+  intensity 1.6
+  castShadows TRUE
+}
+Solid {
+  translation 0 0 -0.015
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.26 0.28 0.3
+        roughness 0.92
+        metalness 0
+      }
+      geometry Box {
+        size 3.2 2.2 0.03
+      }
+    }
+  ]
+  name "course_floor"
+  contactMaterial "course_floor"
+  boundingObject Box {
+    size 3.2 2.2 0.03
+  }
+}
+Pose {
+  translation 0 0 0.002
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.52 0.54
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 3 0.018 0.003
+      }
+    }
+  ]
+}
+Pose {
+  translation 0 0 0.002
+  rotation 0 0 1 1.57079632679
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.52 0.54
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 2 0.018 0.003
+      }
+    }
+  ]
+}
+Pose {
+  translation -1.34 -0.78 0.003
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.06 0.3 0.95
+        roughness 0.8
+        emissiveColor 0.01 0.03 0.1
+      }
+      geometry Cylinder {
+        height 0.005
+        radius 0.085
+      }
+    }
+  ]
+}
+Pose {
+  translation 1.34 0.78 0.003
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.08 0.82 0.24
+        roughness 0.8
+        emissiveColor 0.01 0.08 0.02
+      }
+      geometry Cylinder {
+        height 0.005
+        radius 0.085
+      }
+    }
+  ]
+}
+Solid {
+  translation 0 -1.085 0.06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.84 0.66 0.08
+        roughness 0.75
+      }
+      geometry Box {
+        size 3.2 0.03 0.12
+      }
+    }
+  ]
+  name "south_safety_curb"
+  boundingObject Box {
+    size 3.2 0.03 0.12
+  }
+}
+Solid {
+  translation 0 1.085 0.06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.84 0.66 0.08
+        roughness 0.75
+      }
+      geometry Box {
+        size 3.2 0.03 0.12
+      }
+    }
+  ]
+  name "north_safety_curb"
+  boundingObject Box {
+    size 3.2 0.03 0.12
+  }
+}
+Solid {
+  translation -1.585 0 0.06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.84 0.66 0.08
+        roughness 0.75
+      }
+      geometry Box {
+        size 0.03 2.2 0.12
+      }
+    }
+  ]
+  name "west_safety_curb"
+  boundingObject Box {
+    size 0.03 2.2 0.12
+  }
+}
+Solid {
+  translation 1.585 0 0.06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.84 0.66 0.08
+        roughness 0.75
+      }
+      geometry Box {
+        size 0.03 2.2 0.12
+      }
+    }
+  ]
+  name "east_safety_curb"
+  boundingObject Box {
+    size 0.03 2.2 0.12
+  }
+}
+Solid {
+  translation -0.76 -0.56 0.18
+  children [
+    Pose {
+      translation 0 0 -0.1525
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.48 0.28 0.12
+            roughness 0.9
+          }
+          geometry Box {
+            size 0.46 0.34 0.055
+          }
+        }
+      ]
+    }
+    Pose {
+      translation -0.1 0.02 -0.035
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.71 0.49 0.27
+            roughness 0.95
+          }
+          geometry Box {
+            size 0.2 0.23 0.2
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.11 -0.04 -0.055
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.78 0.56 0.31
+            roughness 0.95
+          }
+          geometry Box {
+            size 0.19 0.18 0.16
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.03 0.055 0.075
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.66 0.43 0.23
+            roughness 0.95
+          }
+          geometry Box {
+            size 0.24 0.16 0.16
+          }
+        }
+      ]
+    }
+  ]
+  name "pallet_with_boxes"
+  boundingObject Box {
+    size 0.46 0.34 0.36
+  }
+}
+Solid {
+  translation -0.32 -0.44 0.18
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.06 0.24 0.58
+        roughness 0.48
+        metalness 0.3
+      }
+      geometry Cylinder {
+        height 0.36
+        radius 0.145
+        subdivision 32
+      }
+    }
+    Pose {
+      translation 0 0 0.15
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.03 0.1 0.25
+            roughness 0.5
+            metalness 0.4
+          }
+          geometry Cylinder {
+            height 0.018
+            radius 0.148
+            subdivision 32
+          }
+        }
+      ]
+    }
+  ]
+  name "blue_factory_drum"
+  boundingObject Cylinder {
+    height 0.36
+    radius 0.145
+    subdivision 24
+  }
+}
+Solid {
+  translation 0.57 -0.28 0.3
+  children [
+    Pose {
+      translation 0 0 0.17
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.38 0.4 0.43
+            roughness 0.55
+            metalness 0.35
+          }
+          geometry Box {
+            size 0.58 0.3 0.055
+          }
+        }
+      ]
+    }
+    Pose {
+      translation -0.245 -0.115 -0.08
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.12 0.13 0.14
+            roughness 0.6
+            metalness 0.55
+          }
+          geometry Box {
+            size 0.045 0.045 0.44
+          }
+        }
+      ]
+    }
+    Pose {
+      translation -0.245 0.115 -0.08
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.12 0.13 0.14
+            roughness 0.6
+            metalness 0.55
+          }
+          geometry Box {
+            size 0.045 0.045 0.44
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.245 -0.115 -0.08
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.12 0.13 0.14
+            roughness 0.6
+            metalness 0.55
+          }
+          geometry Box {
+            size 0.045 0.045 0.44
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.245 0.115 -0.08
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.12 0.13 0.14
+            roughness 0.6
+            metalness 0.55
+          }
+          geometry Box {
+            size 0.045 0.045 0.44
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.12 0 0.245
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.62 0.06 0.06
+            roughness 0.55
+            metalness 0.2
+          }
+          geometry Box {
+            size 0.19 0.12 0.09
+          }
+        }
+      ]
+    }
+  ]
+  name "factory_workbench"
+  boundingObject Group {
+    children [
+      Pose {
+        translation -0.245 -0.115 -0.08
+        children [
+          Box {
+            size 0.045 0.045 0.44
+          }
+        ]
+      }
+      Pose {
+        translation -0.245 0.115 -0.08
+        children [
+          Box {
+            size 0.045 0.045 0.44
+          }
+        ]
+      }
+      Pose {
+        translation 0.245 -0.115 -0.08
+        children [
+          Box {
+            size 0.045 0.045 0.44
+          }
+        ]
+      }
+      Pose {
+        translation 0.245 0.115 -0.08
+        children [
+          Box {
+            size 0.045 0.045 0.44
+          }
+        ]
+      }
+      Pose {
+        translation 0 0 0.17
+        children [
+          Box {
+            size 0.58 0.3 0.055
+          }
+        ]
+      }
+    ]
+  }
+}
+Solid {
+  translation 1.08 -0.66 0.28
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.64 0.05
+        roughness 0.55
+        metalness 0.2
+      }
+      geometry Box {
+        size 0.3 0.34 0.56
+      }
+    }
+    Pose {
+      translation 0 -0.174 0.08
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.1 0.1 0.1
+            roughness 0.7
+            metalness 0.4
+          }
+          geometry Box {
+            size 0.18 0.015 0.022
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 -0.174 -0.03
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.1 0.1 0.1
+            roughness 0.7
+            metalness 0.4
+          }
+          geometry Box {
+            size 0.18 0.015 0.022
+          }
+        }
+      ]
+    }
+  ]
+  name "yellow_tool_cabinet"
+  boundingObject Box {
+    size 0.3 0.34 0.56
+  }
+}
+Solid {
+  translation -0.75 0.4 0.39
+  children [
+    Pose {
+      translation -0.245 -0.09 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.19 0.2 0.22
+            roughness 0.55
+            metalness 0.65
+          }
+          geometry Box {
+            size 0.035 0.035 0.78
+          }
+        }
+      ]
+    }
+    Pose {
+      translation -0.245 0.09 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.19 0.2 0.22
+            roughness 0.55
+            metalness 0.65
+          }
+          geometry Box {
+            size 0.035 0.035 0.78
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.245 -0.09 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.19 0.2 0.22
+            roughness 0.55
+            metalness 0.65
+          }
+          geometry Box {
+            size 0.035 0.035 0.78
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.245 0.09 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.19 0.2 0.22
+            roughness 0.55
+            metalness 0.65
+          }
+          geometry Box {
+            size 0.035 0.035 0.78
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0 -0.25
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.32 0.35
+            roughness 0.55
+            metalness 0.5
+          }
+          geometry Box {
+            size 0.52 0.23 0.025
+          }
+        }
+      ]
+    }
+    Pose {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.32 0.35
+            roughness 0.55
+            metalness 0.5
+          }
+          geometry Box {
+            size 0.52 0.23 0.025
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0 0.25
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.32 0.35
+            roughness 0.55
+            metalness 0.5
+          }
+          geometry Box {
+            size 0.52 0.23 0.025
+          }
+        }
+      ]
+    }
+    Pose {
+      translation -0.12 0 -0.15
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.36 0.62
+            roughness 0.8
+          }
+          geometry Box {
+            size 0.18 0.18 0.15
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.13 0 0.1
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.36 0.62
+            roughness 0.8
+          }
+          geometry Box {
+            size 0.18 0.18 0.15
+          }
+        }
+      ]
+    }
+  ]
+  name "storage_shelf"
+  boundingObject Group {
+    children [
+      Pose {
+        translation -0.245 -0.09 0
+        children [
+          Box {
+            size 0.035 0.035 0.78
+          }
+        ]
+      }
+      Pose {
+        translation -0.245 0.09 0
+        children [
+          Box {
+            size 0.035 0.035 0.78
+          }
+        ]
+      }
+      Pose {
+        translation 0.245 -0.09 0
+        children [
+          Box {
+            size 0.035 0.035 0.78
+          }
+        ]
+      }
+      Pose {
+        translation 0.245 0.09 0
+        children [
+          Box {
+            size 0.035 0.035 0.78
+          }
+        ]
+      }
+      Pose {
+        translation 0 0 -0.25
+        children [
+          Box {
+            size 0.52 0.23 0.025
+          }
+        ]
+      }
+      Pose {
+        children [
+          Box {
+            size 0.52 0.23 0.025
+          }
+        ]
+      }
+      Pose {
+        translation 0 0 0.25
+        children [
+          Box {
+            size 0.52 0.23 0.025
+          }
+        ]
+      }
+    ]
+  }
+}
+Solid {
+  translation -0.02 0.26 0.18
+  rotation 0 0 1 0.22
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.52 0.31 0.14
+        roughness 0.92
+      }
+      geometry Box {
+        size 0.34 0.31 0.36
+      }
+    }
+    Pose {
+      translation 0 0 0.185
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.31 0.17 0.07
+            roughness 0.95
+          }
+          geometry Box {
+            size 0.36 0.045 0.025
+          }
+        }
+      ]
+    }
+  ]
+  name "wooden_crate"
+  boundingObject Box {
+    size 0.34 0.31 0.36
+  }
+}
+Solid {
+  translation 0.77 0.57 0.34
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.46 0.49 0.51
+        roughness 0.45
+        metalness 0.35
+      }
+      geometry Box {
+        size 0.42 0.34 0.68
+      }
+    }
+    Pose {
+      translation -0.05 -0.176 0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.09 0.1
+            roughness 0.35
+            metalness 0.2
+          }
+          geometry Box {
+            size 0.24 0.014 0.19
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.14 -0.185 -0.08
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.75 0.04 0.04
+            roughness 0.5
+            emissiveColor 0.05 0 0
+          }
+          geometry Cylinder {
+            height 0.018
+            radius 0.025
+            subdivision 20
+          }
+        }
+      ]
+    }
+  ]
+  name "machine_cabinet"
+  boundingObject Box {
+    size 0.42 0.34 0.68
+  }
+}
+Solid {
+  translation -0.22 0.76 0.13
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.95 0.28 0.03
+        roughness 0.75
+      }
+      geometry Cylinder {
+        height 0.26
+        radius 0.075
+        subdivision 24
+      }
+    }
+  ]
+  name "orange_bollard_1"
+  boundingObject Cylinder {
+    height 0.26
+    radius 0.075
+    subdivision 20
+  }
+}
+Solid {
+  translation 0.18 0.76 0.13
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.95 0.28 0.03
+        roughness 0.75
+      }
+      geometry Cylinder {
+        height 0.26
+        radius 0.075
+        subdivision 24
+      }
+    }
+  ]
+  name "orange_bollard_2"
+  boundingObject Cylinder {
+    height 0.26
+    radius 0.075
+    subdivision 20
+  }
+}
+Solid {
+  translation -0.43 -0.08 0.17
+  rotation 0 0 1 0.24
+  children [
+    Pose {
+      translation 0 0 -0.11
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.2 0.22 0.24
+            roughness 0.55
+            metalness 0.55
+          }
+          geometry Box {
+            size 0.38 0.2 0.12
+          }
+        }
+      ]
+    }
+    Pose {
+      translation -0.15 -0.085 -0.135
+      rotation 1 0 0 1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.04 0.04 0.04
+            roughness 0.8
+          }
+          geometry Cylinder {
+            height 0.025
+            radius 0.035
+            subdivision 20
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.15 -0.085 -0.135
+      rotation 1 0 0 1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.04 0.04 0.04
+            roughness 0.8
+          }
+          geometry Cylinder {
+            height 0.025
+            radius 0.035
+            subdivision 20
+          }
+        }
+      ]
+    }
+    Pose {
+      translation -0.15 0.085 -0.135
+      rotation 1 0 0 1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.04 0.04 0.04
+            roughness 0.8
+          }
+          geometry Cylinder {
+            height 0.025
+            radius 0.035
+            subdivision 20
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.15 0.085 -0.135
+      rotation 1 0 0 1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.04 0.04 0.04
+            roughness 0.8
+          }
+          geometry Cylinder {
+            height 0.025
+            radius 0.035
+            subdivision 20
+          }
+        }
+      ]
+    }
+  ]
+  name "utility_cart"
+  boundingObject Box {
+    size 0.38 0.2 0.34
+  }
+}
+Solid {
+  translation -1.24 0.05 0.22
+  children [
+    Pose {
+      translation 0 0 -0.16
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.06 0.06 0.07
+            roughness 0.78
+          }
+          geometry Cylinder {
+            height 0.12
+            radius 0.155
+            subdivision 24
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0 0.16
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.07 0.08 0.09
+            roughness 0.65
+          }
+          geometry Cylinder {
+            height 0.055
+            radius 0.13
+            subdivision 24
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0 -0.0375
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.16 0.17 0.18
+            roughness 0.6
+            metalness 0.3
+          }
+          geometry Cylinder {
+            height 0.365
+            radius 0.035
+            subdivision 20
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 -0.2 -0.2075
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.05 0.05 0.05
+            roughness 0.8
+          }
+          geometry Box {
+            size 0.25 0.035 0.025
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.2 -0.2075
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.05 0.05 0.05
+            roughness 0.8
+          }
+          geometry Box {
+            size 0.25 0.035 0.1
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.1 0 -0.2075
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.05 0.05 0.05
+            roughness 0.8
+          }
+          geometry Box {
+            size 0.22 0.035 0.1
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.1 -0.2075
+      rotation 0 0 1 1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.05 0.05 0.05
+            roughness 0.8
+          }
+          geometry Box {
+            size 0.22 0.035 0.025
+          }
+        }
+      ]
+    }
+  ]
+  name "rolling_chair"
+  boundingObject Group {
+    children [
+      Pose {
+        translation 0 0 -0.16
+        children [
+          Cylinder {
+            height 0.12
+            radius 0.155
+            subdivision 24
+          }
+        ]
+      }
+      Pose {
+        translation 0 0 -0.0375
+        children [
+          Cylinder {
+            height 0.365
+            radius 0.035
+            subdivision 20
+          }
+        ]
+      }
+      Pose {
+        translation 0 0 0.16
+        children [
+          Cylinder {
+            height 0.055
+            radius 0.13
+            subdivision 24
+          }
+        ]
+      }
+    ]
+  }
+}
+Solid {
+  translation -1.3 0.49 0.25
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.12 0.14
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.5
+        radius 0.12
+        subdivision 24
+      }
+    }
+    Pose {
+      translation 0 0 0.255
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.04 0.05 0.06
+            roughness 0.65
+          }
+          geometry Cylinder {
+            height 0.025
+            radius 0.125
+            subdivision 24
+          }
+        }
+      ]
+    }
+  ]
+  name "trash_bin"
+  boundingObject Cylinder {
+    height 0.5
+    radius 0.12
+    subdivision 20
+  }
+}
+Solid {
+  translation -0.33 0.58 0.12
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.82 0.82 0.78
+        roughness 0.75
+        metalness 0.05
+      }
+      geometry Cylinder {
+        height 0.24
+        radius 0.1
+        subdivision 24
+      }
+    }
+  ]
+  name "paint_bucket_1"
+  boundingObject Cylinder {
+    height 0.24
+    radius 0.1
+    subdivision 20
+  }
+}
+Solid {
+  translation -0.08 0.67 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.73 0.12 0.1
+        roughness 0.75
+      }
+      geometry Cylinder {
+        height 0.2
+        radius 0.085
+        subdivision 24
+      }
+    }
+  ]
+  name "paint_bucket_2"
+  boundingObject Cylinder {
+    height 0.2
+    radius 0.085
+    subdivision 20
+  }
+}
+Solid {
+  translation 0.33 0.53 0.15
+  rotation 0 0 1 -0.18
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.78 0.66
+        roughness 0.9
+      }
+      geometry Box {
+        size 0.28 0.22 0.3
+      }
+    }
+    Pose {
+      translation 0 0 0.155
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.93 0.92 0.84
+            roughness 0.9
+          }
+          geometry Box {
+            size 0.23 0.17 0.018
+          }
+        }
+      ]
+    }
+  ]
+  name "laundry_basket"
+  boundingObject Box {
+    size 0.28 0.22 0.3
+  }
+}
+Solid {
+  translation 0.42 0.84 0.18
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.7 0.03 0.03
+        roughness 0.52
+        metalness 0.2
+      }
+      geometry Cylinder {
+        height 0.36
+        radius 0.065
+        subdivision 24
+      }
+    }
+    Pose {
+      translation 0 0 0.205
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.08 0.08
+            roughness 0.7
+          }
+          geometry Box {
+            size 0.07 0.04 0.05
+          }
+        }
+      ]
+    }
+  ]
+  name "fire_extinguisher"
+  boundingObject Cylinder {
+    height 0.36
+    radius 0.065
+    subdivision 20
+  }
+}
+Solid {
+  translation 1.27 0.07 0.1
+  rotation 1 0 0 1.57079632679
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.22 0.18 0.12
+        roughness 0.72
+      }
+      geometry Cylinder {
+        height 0.2
+        radius 0.14
+        subdivision 24
+      }
+    }
+    Pose {
+      translation 0 0 0.115
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.05 0.05 0.05
+            roughness 0.8
+          }
+          geometry Cylinder {
+            height 0.035
+            radius 0.09
+            subdivision 24
+          }
+        }
+      ]
+    }
+  ]
+  name "cable_reel"
+  boundingObject Cylinder {
+    height 0.2
+    radius 0.14
+    subdivision 20
+  }
+}
+Solid {
+  translation 1.28 0.46 0.31
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.78 0.8 0.82
+        roughness 0.42
+        metalness 0.28
+      }
+      geometry Box {
+        size 0.25 0.28 0.62
+      }
+    }
+    Pose {
+      translation 0 -0.145 0.04
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.1 0.1 0.1
+            roughness 0.6
+          }
+          geometry Box {
+            size 0.12 0.012 0.025
+          }
+        }
+      ]
+    }
+  ]
+  name "mini_fridge"
+  boundingObject Box {
+    size 0.25 0.28 0.62
+  }
+}
+Solid {
+  translation -1.02 -0.88 0.09
+  rotation 0 0 1 -0.18
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.73 0.5 0.26
+        roughness 0.95
+      }
+      geometry Box {
+        size 0.18 0.15 0.18
+      }
+    }
+  ]
+  name "loose_box_1"
+  boundingObject Box {
+    size 0.18 0.15 0.18
+  }
+}
+Solid {
+  translation -0.48 -0.84 0.11
+  rotation 0 0 1 0.35
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.68 0.45 0.23
+        roughness 0.95
+      }
+      geometry Box {
+        size 0.22 0.17 0.22
+      }
+    }
+  ]
+  name "loose_box_2"
+  boundingObject Box {
+    size 0.22 0.17 0.22
+  }
+}
+Solid {
+  translation 0.16 -0.83 0.1
+  rotation 0 0 1 -0.28
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.78 0.56 0.31
+        roughness 0.95
+      }
+      geometry Box {
+        size 0.2 0.16 0.2
+      }
+    }
+  ]
+  name "loose_box_3"
+  boundingObject Box {
+    size 0.2 0.16 0.2
+  }
+}
+Solid {
+  translation 0.66 -0.83 0.075
+  rotation 0 0 1 0.16
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.63 0.4 0.21
+        roughness 0.95
+      }
+      geometry Box {
+        size 0.15 0.13 0.15
+      }
+    }
+  ]
+  name "loose_box_4"
+  boundingObject Box {
+    size 0.15 0.13 0.15
+  }
+}
+Solid {
+  translation 0.02 -0.1 0.11
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.92 0.66 0.04
+        roughness 0.76
+      }
+      geometry Cylinder {
+        height 0.22
+        radius 0.105
+        subdivision 24
+      }
+    }
+  ]
+  name "mop_bucket"
+  boundingObject Cylinder {
+    height 0.22
+    radius 0.105
+    subdivision 20
+  }
+}
+Solid {
+  translation -0.78 -0.11 0.25
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.5 0.28
+        roughness 0.48
+        metalness 0.25
+      }
+      geometry Cylinder {
+        height 0.5
+        radius 0.09
+        subdivision 24
+      }
+    }
+  ]
+  name "gas_cylinder_lower"
+  boundingObject Cylinder {
+    height 0.5
+    radius 0.09
+    subdivision 20
+  }
+}
+Solid {
+  translation -0.82 0.065 0.25
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.12 0.52 0.3
+        roughness 0.48
+        metalness 0.25
+      }
+      geometry Cylinder {
+        height 0.5
+        radius 0.09
+        subdivision 24
+      }
+    }
+  ]
+  name "gas_cylinder_upper"
+  boundingObject Cylinder {
+    height 0.5
+    radius 0.09
+    subdivision 20
+  }
+}
+Solid {
+  translation -0.92 0.745 0.26
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.31 0.33 0.35
+        roughness 0.52
+        metalness 0.55
+      }
+      geometry Box {
+        size 0.78 0.1 0.52
+      }
+    }
+    Pose {
+      translation -0.24 0 -0.05
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.1 0.34 0.62
+            roughness 0.78
+          }
+          geometry Box {
+            size 0.18 0.105 0.14
+          }
+        }
+      ]
+    }
+  ]
+  name "tight_aisle_rack_lower"
+  boundingObject Box {
+    size 0.78 0.1 0.52
+  }
+}
+Solid {
+  translation -0.92 0.955 0.26
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.31 0.33 0.35
+        roughness 0.52
+        metalness 0.55
+      }
+      geometry Box {
+        size 0.78 0.1 0.52
+      }
+    }
+    Pose {
+      translation 0.2 0 0.05
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.7 0.18 0.1
+            roughness 0.78
+          }
+          geometry Box {
+            size 0.2 0.105 0.16
+          }
+        }
+      ]
+    }
+  ]
+  name "tight_aisle_rack_upper"
+  boundingObject Box {
+    size 0.78 0.1 0.52
+  }
+}
+Solid {
+  translation 0.9 0.94 0.3
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.54 0.57 0.6
+        roughness 0.48
+        metalness 0.35
+      }
+      geometry Box {
+        size 0.2 0.2 0.6
+      }
+    }
+  ]
+  name "false_gap_cabinet_left"
+  boundingObject Box {
+    size 0.2 0.2 0.6
+  }
+}
+Solid {
+  translation 1.15 0.94 0.3
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.53 0.56
+        roughness 0.48
+        metalness 0.35
+      }
+      geometry Box {
+        size 0.2 0.2 0.6
+      }
+    }
+  ]
+  name "false_gap_cabinet_right"
+  boundingObject Box {
+    size 0.2 0.2 0.6
+  }
+}
+Solid {
+  translation 1.43 -0.13 0.22
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.42 0.44 0.46
+        roughness 0.6
+        metalness 0.2
+      }
+      geometry Box {
+        size 0.15 0.54 0.44
+      }
+    }
+  ]
+  name "dead_end_back"
+  boundingObject Box {
+    size 0.15 0.54 0.44
+  }
+}
+Solid {
+  translation 1.2 0.2 0.18
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.64 0.43 0.22
+        roughness 0.9
+      }
+      geometry Box {
+        size 0.46 0.12 0.36
+      }
+    }
+  ]
+  name "dead_end_top"
+  boundingObject Box {
+    size 0.46 0.12 0.36
+  }
+}
+Solid {
+  translation 1.2 -0.46 0.18
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.66 0.45 0.24
+        roughness 0.9
+      }
+      geometry Box {
+        size 0.46 0.12 0.36
+      }
+    }
+  ]
+  name "dead_end_bottom"
+  boundingObject Box {
+    size 0.46 0.12 0.36
+  }
+}
+Solid {
+  translation 0.22 0.1 0.22
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.31 0.19 0.1
+        roughness 0.8
+      }
+      geometry Cylinder {
+        height 0.44
+        radius 0.075
+        subdivision 24
+      }
+    }
+    Pose {
+      translation 0 0 0.23
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.4 0.24 0.12
+            roughness 0.8
+          }
+          geometry Cylinder {
+            height 0.035
+            radius 0.105
+            subdivision 24
+          }
+        }
+      ]
+    }
+  ]
+  name "wooden_stool_1"
+  boundingObject Cylinder {
+    height 0.44
+    radius 0.105
+    subdivision 20
+  }
+}
+Solid {
+  translation 0.22 -0.22 0.22
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.31 0.19 0.1
+        roughness 0.8
+      }
+      geometry Cylinder {
+        height 0.44
+        radius 0.075
+        subdivision 24
+      }
+    }
+    Pose {
+      translation 0 0 0.23
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.4 0.24 0.12
+            roughness 0.8
+          }
+          geometry Cylinder {
+            height 0.035
+            radius 0.105
+            subdivision 24
+          }
+        }
+      ]
+    }
+  ]
+  name "wooden_stool_2"
+  boundingObject Cylinder {
+    height 0.44
+    radius 0.105
+    subdivision 20
+  }
+}
+Solid {
+  translation -1.22396 -0.273362 0.15
+  rotation 0 0 1 -0.34360530717958593
+  children [
+    Pose {
+      translation 0 0 -0.07
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.72 0.67 0.52
+            roughness 1
+          }
+          geometry Box {
+            size 0.3 0.2 0.16
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.04 0.02 0.05
+      rotation 0 0 1 -0.22
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.78 0.73 0.58
+            roughness 1
+          }
+          geometry Box {
+            size 0.25 0.17 0.14
+          }
+        }
+      ]
+    }
+  ]
+  name "bag_stack"
+  boundingObject Box {
+    size 0.3 0.2 0.3
+  }
+}
+Solid {
+  translation 0.82 0.14 0.16
+  rotation 0 0 1 -0.3
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.13 0.15 0.17
+        roughness 0.52
+        metalness 0.3
+      }
+      geometry Box {
+        size 0.25 0.18 0.32
+      }
+    }
+  ]
+  name "rolling_tool_case"
+  boundingObject Box {
+    size 0.25 0.18 0.32
+  }
+}
+Solid {
+  translation -0.18 -0.62 0.07
+  rotation 0 0 1 0.52
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.48 0.29 0.14
+        roughness 0.88
+      }
+      geometry Box {
+        size 0.52 0.075 0.14
+      }
+    }
+  ]
+  name "floor_board_bundle"
+  boundingObject Box {
+    size 0.52 0.075 0.14
+  }
+}
+Solid {
+  translation 0.38 -0.57 0.07
+  rotation 0 0 1 -0.35
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.12 0.13 0.14
+        roughness 0.7
+        metalness 0.2
+      }
+      geometry Box {
+        size 0.16 0.1 0.14
+      }
+    }
+  ]
+  name "low_toolbox"
+  boundingObject Box {
+    size 0.16 0.1 0.14
+  }
+}
+Robot {
+  translation -1.3399999999999996 -0.7800000000944395 0.030977521456953913
+  rotation 0.9999999999983831 -5.407512811583261e-07 1.715054598779506e-06 2.02324029655822e-09
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          ambientIntensity 0.4
+          diffuseColor 0.78 0.08 0.1
+          shininess 0.25
+          specularColor 0.25 0.25 0.25
+        }
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.0355
+      }
+    }
+    Pose {
+      translation 0 0 0.027
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.04 0.04 0.05
+            }
+          }
+          geometry Cylinder {
+            height 0.004
+            radius 0.029
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.02 0 0.03
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.95 0.95 0.95
+            }
+          }
+          geometry Box {
+            size 0.025 0.008 0.004
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 6.642282578316182e-14
+        axis 0 1 0
+        anchor 0 0.033 -0.01
+      }
+      device [
+        RotationalMotor {
+          name "left wheel motor"
+          maxVelocity 8
+          maxTorque 0.025
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.033 -0.01
+        rotation 1 3.1810168567530814e-14 -3.099830960131819e-14 1.5707963267902327
+        children [
+          DEF EPUCK_WHEEL Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 0.02 0.02 0.02
+              }
+            }
+            geometry Cylinder {
+              height 0.005
+              radius 0.021
+              subdivision 24
+            }
+          }
+        ]
+        name "left wheel"
+        contactMaterial "wheel"
+        boundingObject USE EPUCK_WHEEL
+        physics Physics {
+          density -1
+          mass 0.01
+        }
+        linearVelocity -1.0274018152794475e-17 -8.168805894891715e-17 5.571676424085153e-12
+        angularVelocity 2.3163963329066773e-15 -4.667341506337629e-16 9.830119459362471e-17
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 6.824010404906401e-14
+        axis 0 1 0
+        anchor 0 -0.033 -0.01
+      }
+      device [
+        RotationalMotor {
+          name "right wheel motor"
+          maxVelocity 8
+          maxTorque 0.025
+        }
+      ]
+      endPoint Solid {
+        translation 0 -0.033 -0.01
+        rotation 1 3.3519124505007495e-14 -3.271137953727838e-14 1.5707963267902323
+        children [
+          USE EPUCK_WHEEL
+        ]
+        name "right wheel"
+        contactMaterial "wheel"
+        boundingObject USE EPUCK_WHEEL
+        physics Physics {
+          density -1
+          mass 0.01
+        }
+        linearVelocity -2.7360668451129925e-18 -1.3418130832822016e-16 5.571587638148105e-12
+        angularVelocity 6.177056887751191e-15 2.005625347353967e-16 1.1330029829643213e-16
+      }
+    }
+    Pose {
+      translation 0.031 0 0.011
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.02 0.02 0.02
+            }
+          }
+          geometry Box {
+            size 0.012 0.02 0.016
+          }
+        }
+      ]
+    }
+    Camera {
+      translation 0.034 0 0.012
+      fieldOfView 1.05
+      width 160
+      height 120
+      antiAliasing TRUE
+    }
+    Pose {
+      translation 0.03 0.02 0.004
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.1 0.35 1
+            }
+          }
+          geometry Sphere {
+            radius 0.005
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.03 -0.02 0.004
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.1 0.35 1
+            }
+          }
+          geometry Sphere {
+            radius 0.005
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.015 0.031 0.004
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.1 0.35 1
+            }
+          }
+          geometry Sphere {
+            radius 0.005
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.015 -0.031 0.004
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.1 0.35 1
+            }
+          }
+          geometry Sphere {
+            radius 0.005
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.032 0.004
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.1 0.35 1
+            }
+          }
+          geometry Sphere {
+            radius 0.003
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 -0.032 0.004
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.1 0.35 1
+            }
+          }
+          geometry Sphere {
+            radius 0.003
+          }
+        }
+      ]
+    }
+    Pose {
+      translation -0.027 0.022 0.004
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.1 0.35 1
+            }
+          }
+          geometry Sphere {
+            radius 0.005
+          }
+        }
+      ]
+    }
+    Pose {
+      translation -0.027 -0.022 0.004
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.1 0.35 1
+            }
+          }
+          geometry Sphere {
+            radius 0.005
+          }
+        }
+      ]
+    }
+    DistanceSensor {
+      translation 0.031 0.02 0.004
+      rotation 0 0 1 0.22
+      name "proximity_left"
+      lookupTable [
+        0 1000 0
+        0.03 1000 0
+        0.08 650 0
+        0.12 300 0
+        0.16 0 0
+      ]
+      type "infra-red"
+      numberOfRays 5
+      aperture 0.22
+    }
+    DistanceSensor {
+      translation 0.031 -0.02 0.004
+      rotation 0 0 1 -0.22
+      name "proximity_right"
+      lookupTable [
+        0 1000 0
+        0.03 1000 0
+        0.08 650 0
+        0.12 300 0
+        0.16 0 0
+      ]
+      type "infra-red"
+      numberOfRays 5
+      aperture 0.22
+    }
+    DistanceSensor {
+      translation 0.015 0.031 0.004
+      rotation 0 0 1 0.78
+      name "proximity_left_front"
+      lookupTable [
+        0 1000 0
+        0.03 1000 0
+        0.08 650 0
+        0.12 300 0
+        0.16 0 0
+      ]
+      type "infra-red"
+      numberOfRays 3
+      aperture 0.2
+    }
+    DistanceSensor {
+      translation 0.015 -0.031 0.004
+      rotation 0 0 1 -0.78
+      name "proximity_right_front"
+      lookupTable [
+        0 1000 0
+        0.03 1000 0
+        0.08 650 0
+        0.12 300 0
+        0.16 0 0
+      ]
+      type "infra-red"
+      numberOfRays 3
+      aperture 0.2
+    }
+    DistanceSensor {
+      translation 0 0.035 0.004
+      rotation 0 0 1 1.57079632679
+      name "proximity_left_side"
+      lookupTable [
+        0 1000 0
+        0.03 1000 0
+        0.08 650 0
+        0.12 300 0
+        0.16 0 0
+      ]
+      type "infra-red"
+      numberOfRays 3
+      aperture 0.2
+    }
+    DistanceSensor {
+      translation 0 -0.035 0.004
+      rotation 0 0 1 -1.57079632679
+      name "proximity_right_side"
+      lookupTable [
+        0 1000 0
+        0.03 1000 0
+        0.08 650 0
+        0.12 300 0
+        0.16 0 0
+      ]
+      type "infra-red"
+      numberOfRays 3
+      aperture 0.2
+    }
+    DistanceSensor {
+      translation -0.028 0.022 0.004
+      rotation 0 0 1 2.6
+      name "proximity_rear_left"
+      lookupTable [
+        0 1000 0
+        0.03 1000 0
+        0.08 650 0
+        0.12 300 0
+        0.16 0 0
+      ]
+      type "infra-red"
+      numberOfRays 3
+      aperture 0.2
+    }
+    DistanceSensor {
+      translation -0.028 -0.022 0.004
+      rotation 0 0 1 -2.6
+      name "proximity_rear_right"
+      lookupTable [
+        0 1000 0
+        0.03 1000 0
+        0.08 650 0
+        0.12 300 0
+        0.16 0 0
+      ]
+      type "infra-red"
+      numberOfRays 3
+      aperture 0.2
+    }
+  ]
+  name "e-puck obstacle robot"
+  contactMaterial "robot_body"
+  boundingObject Group {
+    children [
+      Cylinder {
+        height 0.05
+        radius 0.0355
+      }
+      Pose {
+        translation 0.024 0 -0.026
+        children [
+          Sphere {
+            radius 0.005
+          }
+        ]
+      }
+      Pose {
+        translation -0.024 0 -0.026
+        children [
+          Sphere {
+            radius 0.005
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 0.15
+    centerOfMass [
+      0 0 0
+    ]
+  }
+  controller "primalux_front_obstacle"
+  linearVelocity -1.3244823060387683e-17 -1.5298754509973272e-16 -3.6711390653794114e-15
+  angularVelocity 5.117469921642684e-15 -7.89611733249942e-16 1.0790207215848854e-16
+}

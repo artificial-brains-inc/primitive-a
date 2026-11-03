@@ -1,0 +1,12 @@
+.venv/
+.venv.backup-*/
+.ab_sdk/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+logs/
+.stop-request
+controllers/*/runtime.ini
+*.abp

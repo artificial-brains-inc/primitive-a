@@ -1,0 +1,7 @@
+{
+  "physics_step_ms": 32,
+  "proximity_full_scale": 1000.0,
+  "wheel_speed_rad_s": 3.0,
+  "output_timeout_seconds": 5.0,
+  "ack_timeout_seconds": 30.0
+}

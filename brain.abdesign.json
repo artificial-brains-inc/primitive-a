@@ -1,0 +1,295 @@
+{
+  "schema": "artificial-brains/design/v1",
+  "name": "Primitive A",
+  "nodes": [
+    {
+      "name": "CAMERA",
+      "kind": "input",
+      "x": 40.0,
+      "y": 400.0,
+      "neurons": 64
+    },
+    {
+      "name": "CAMERA_RELAY",
+      "kind": "opu",
+      "x": 300.0,
+      "y": 400.0,
+      "rhythm": "high-gamma",
+      "tnorm": 10.0
+    },
+    {
+      "name": "CAMERA_SCENE",
+      "kind": "opu",
+      "x": 560.0,
+      "y": 400.0,
+      "rhythm": "theta",
+      "tnorm": 3.0
+    },
+    {
+      "name": "PROX_RIGHT",
+      "kind": "input",
+      "x": 40.0,
+      "y": 60.0,
+      "neurons": 16
+    },
+    {
+      "name": "PROX_RIGHT_RELAY",
+      "kind": "opu",
+      "x": 300.0,
+      "y": 60.0,
+      "rhythm": "high-gamma",
+      "tnorm": 10.0
+    },
+    {
+      "name": "PROX_RIGHT_T1",
+      "kind": "opu",
+      "x": 560.0,
+      "y": 60.0,
+      "rhythm": "theta",
+      "tnorm": 3.0
+    },
+    {
+      "name": "PROX_RIGHT_T2",
+      "kind": "opu",
+      "x": 820.0,
+      "y": 60.0,
+      "rhythm": "theta",
+      "tnorm": 2.01
+    },
+    {
+      "name": "PROX_LEFT",
+      "kind": "input",
+      "x": 40.0,
+      "y": 780.0,
+      "neurons": 16
+    },
+    {
+      "name": "PROX_LEFT_RELAY",
+      "kind": "opu",
+      "x": 300.0,
+      "y": 780.0,
+      "rhythm": "high-gamma",
+      "tnorm": 10.0
+    },
+    {
+      "name": "PROX_LEFT_T1",
+      "kind": "opu",
+      "x": 560.0,
+      "y": 780.0,
+      "rhythm": "theta",
+      "tnorm": 3.0
+    },
+    {
+      "name": "PROX_LEFT_T2",
+      "kind": "opu",
+      "x": 820.0,
+      "y": 780.0,
+      "rhythm": "theta",
+      "tnorm": 2.01
+    },
+    {
+      "name": "FORWARD_LEFT",
+      "kind": "opu",
+      "x": 1340.0,
+      "y": 290.0,
+      "rhythm": "beta",
+      "tnorm": 5.0
+    },
+    {
+      "name": "WHEEL_LEFT",
+      "kind": "output",
+      "x": 1600.0,
+      "y": 290.0,
+      "neurons": 1
+    },
+    {
+      "name": "FORWARD_RIGHT",
+      "kind": "opu",
+      "x": 1340.0,
+      "y": 550.0,
+      "rhythm": "beta",
+      "tnorm": 5.0
+    },
+    {
+      "name": "WHEEL_RIGHT",
+      "kind": "output",
+      "x": 1600.0,
+      "y": 550.0,
+      "neurons": 1
+    },
+    {
+      "name": "TURN_LEFT",
+      "kind": "opu",
+      "x": 1080.0,
+      "y": 60.0,
+      "rhythm": "beta",
+      "tnorm": 5.0
+    },
+    {
+      "name": "TURN_RIGHT",
+      "kind": "opu",
+      "x": 1080.0,
+      "y": 780.0,
+      "rhythm": "beta",
+      "tnorm": 5.0
+    },
+    {
+      "name": "TRANSPORT_ACK",
+      "kind": "input",
+      "x": 40.0,
+      "y": 1100.0,
+      "neurons": 1
+    },
+    {
+      "name": "TRANSPORT_ACK_RELAY",
+      "kind": "opu",
+      "x": 300.0,
+      "y": 1100.0,
+      "rhythm": "high-gamma",
+      "tnorm": 10.0
+    },
+    {
+      "name": "TRANSPORT_ACK_OUT",
+      "kind": "output",
+      "x": 560.0,
+      "y": 1100.0,
+      "neurons": 1
+    },
+    {
+      "name": "TRANSPORT_ACK_CLEAR",
+      "kind": "opu",
+      "x": 820.0,
+      "y": 1100.0,
+      "rhythm": "high-gamma",
+      "tnorm": 10.0
+    }
+  ],
+  "connections": [
+    {
+      "from": "CAMERA",
+      "to": "CAMERA_RELAY",
+      "type": "exc"
+    },
+    {
+      "from": "CAMERA_RELAY",
+      "to": "CAMERA_SCENE",
+      "type": "exc"
+    },
+    {
+      "from": "PROX_RIGHT",
+      "to": "PROX_RIGHT_RELAY",
+      "type": "exc"
+    },
+    {
+      "from": "PROX_RIGHT_RELAY",
+      "to": "PROX_RIGHT_T1",
+      "type": "exc"
+    },
+    {
+      "from": "PROX_RIGHT_T1",
+      "to": "PROX_RIGHT_T2",
+      "type": "exc"
+    },
+    {
+      "from": "PROX_LEFT",
+      "to": "PROX_LEFT_RELAY",
+      "type": "exc"
+    },
+    {
+      "from": "PROX_LEFT_RELAY",
+      "to": "PROX_LEFT_T1",
+      "type": "exc"
+    },
+    {
+      "from": "PROX_LEFT_T1",
+      "to": "PROX_LEFT_T2",
+      "type": "exc"
+    },
+    {
+      "from": "CAMERA_SCENE",
+      "to": "FORWARD_LEFT",
+      "type": "exc"
+    },
+    {
+      "from": "FORWARD_LEFT",
+      "to": "WHEEL_LEFT",
+      "type": "exc"
+    },
+    {
+      "from": "CAMERA_SCENE",
+      "to": "FORWARD_RIGHT",
+      "type": "exc"
+    },
+    {
+      "from": "FORWARD_RIGHT",
+      "to": "WHEEL_RIGHT",
+      "type": "exc"
+    },
+    {
+      "from": "PROX_RIGHT_T2",
+      "to": "TURN_LEFT",
+      "type": "exc"
+    },
+    {
+      "from": "PROX_LEFT_T2",
+      "to": "TURN_RIGHT",
+      "type": "exc"
+    },
+    {
+      "from": "TURN_LEFT",
+      "to": "TURN_RIGHT",
+      "type": "inh"
+    },
+    {
+      "from": "TURN_RIGHT",
+      "to": "TURN_LEFT",
+      "type": "inh"
+    },
+    {
+      "from": "TURN_LEFT",
+      "to": "FORWARD_LEFT",
+      "type": "inh"
+    },
+    {
+      "from": "TURN_LEFT",
+      "to": "WHEEL_LEFT",
+      "type": "inh"
+    },
+    {
+      "from": "TURN_RIGHT",
+      "to": "FORWARD_RIGHT",
+      "type": "inh"
+    },
+    {
+      "from": "TURN_RIGHT",
+      "to": "WHEEL_RIGHT",
+      "type": "inh"
+    },
+    {
+      "from": "TRANSPORT_ACK",
+      "to": "TRANSPORT_ACK_RELAY",
+      "type": "exc"
+    },
+    {
+      "from": "TRANSPORT_ACK_RELAY",
+      "to": "TRANSPORT_ACK_OUT",
+      "type": "exc"
+    },
+    {
+      "from": "TRANSPORT_ACK_OUT",
+      "to": "TRANSPORT_ACK_CLEAR",
+      "type": "exc"
+    },
+    {
+      "from": "TRANSPORT_ACK_CLEAR",
+      "to": "TRANSPORT_ACK_OUT",
+      "type": "inh"
+    },
+    {
+      "from": "TRANSPORT_ACK_CLEAR",
+      "to": "TRANSPORT_ACK_CLEAR",
+      "type": "inh",
+      "role": "feedback"
+    }
+  ]
+}
